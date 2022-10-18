@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
 
     let getAllUsers = async () => {
-      let response = await axios.get('http://localhost:5000/products');
+      let response = await axios.get('https://storage-bucket-production.up.railway.app/products');
       setUsers(response.data.data)
     }
     getAllUsers();
@@ -44,7 +44,7 @@ function App() {
 
     axios({
       method: 'post',
-      url: "http://localhost:5000/product",
+      url: "https://storage-bucket-production.up.railway.app/product",
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
       // withCredentials: true
