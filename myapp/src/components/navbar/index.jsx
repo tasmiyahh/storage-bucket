@@ -9,21 +9,23 @@ const NavBar= () =>{
   
    let {state , dispath}= useContext(GlobalContext);
     return(
-      <>
+      <div className="navbar">
+          <h2>THE SHOP</h2>
       <nav className='nav'>
        
       
       
         <ul>
-          
-         
+      
+        <li><Link to="/">Home</Link></li>
+        
           <li><Link to="/signup">Signup</Link></li>
           <li>
             <Link to="/products">products</Link>
           </li>
         </ul>
       </nav>
-      </>
+      </div>
     )
   }
 

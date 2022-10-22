@@ -2,18 +2,23 @@
     background-color: #F2F2F2;
 }
 
-body{
+.products{
     background-color: #F2F2F2;
 }
 
 .productlist{
    display: flex;
    flex-wrap: wrap;
-   width: 80%;
+  
    margin: auto;
    
    justify-content: space-between;
 
+}
+.productimg{
+    width: 140px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 .product{
@@ -22,7 +27,7 @@ body{
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
-    padding: 50px;
+    padding: 40px;
     margin: 10px 20px;
     border-radius: 20px;
     text-align: center;

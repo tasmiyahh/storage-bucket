@@ -1,10 +1,27 @@
 .nav{
     display: flex;
     justify-content: flex-end;
+     color: white;
 
      
    
+
   }
+
+  
+ 
+  .navbar{
+    background-color: black;
+    display: flex;
+    color: #3399FF;
+ justify-content: space-between;
+  align-items: center;
+  text-indent: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  flex-wrap: wrap;
+  }
+
+
   
   
   
@@ -18,10 +35,10 @@
     display: flex;
   
     justify-content: flex-end;
-    border: 1px solid #3399FF;
+    border: 3px solid #3399FF;
     margin: 5px;
     border-radius: 5px;
-  
+     background-color: white;
     color: white;
   }
   
@@ -33,6 +50,7 @@
     padding: 5px;
     margin: 5px;
     color: #3399FF;
+   
   }
   
   h1{

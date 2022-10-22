@@ -50,7 +50,7 @@ function Product() {
     axios({
       method: 'post',
       url: "https://storage-bucket-production.up.railway.app/product",
-    //  url: "http://localhost:5000/product",
+     //url: "http://localhost:5000/product",
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
       // withCredentials: true
@@ -66,7 +66,7 @@ function Product() {
 
 
   return (
-    <div>
+    <div className='products'>
       <div className="head">
       <form onSubmit={producthandler}>
         <h1>PRODUCT FORM</h1>
@@ -102,7 +102,7 @@ function Product() {
         {users.map(eachUser => (
           <div key={eachUser.id}>
             <div className='product'>
-            <img width="150px" src={eachUser.productimage} alt="" />
+            <img className="productimg" width="120px" src={eachUser.productimage} alt="" />
             <h4>{eachUser.name}</h4>
             <p className='description'>{eachUser.description}</p>
             <p ><span className='price'>{eachUser.price}</span><span>pkr</span></p>
