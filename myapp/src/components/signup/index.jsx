@@ -17,8 +17,8 @@ function Signup() {
   useEffect(() => {
 
     let getAllUsers = async () => {
-     //  let response = await axios.get('https://storage-bucket-production.up.railway.app/users');
-      let response = await axios.get('http://localhost:5000/users');
+      let response = await axios.get('https://storage-bucket-production.up.railway.app/users');
+     // let response = await axios.get('http://localhost:5000/users');
       
       setUsers(response.data.data)
     }
@@ -48,8 +48,8 @@ function Signup() {
 
     axios({
       method: 'post',
-      //url: "https://storage-bucket-production.up.railway.app/signup",
-     url : "http://localhost:5000/signup",
+      url: "https://storage-bucket-production.up.railway.app/signup",
+    // url : "http://localhost:5000/signup",
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
       // withCredentials: true
@@ -110,7 +110,9 @@ function Signup() {
             <p className='email'>{eachUser.email}</p>
             <button onClick={()=>{
               axios({
-                 url : `http://localhost:5000/user/${eachUser._id}` ,
+               //  url : `http://localhost:5000/user/${eachUser._id}` ,
+               url : `https://storage-bucket-production.up.railway.app/user/${eachUser._id}`,
+               
                  method : "delete",
 
               })

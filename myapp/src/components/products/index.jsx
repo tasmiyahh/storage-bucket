@@ -16,8 +16,8 @@ function Product() {
   useEffect(() => {
 
     let getAllUsers = async () => {
-     //  let response = await axios.get('https://storage-bucket-production.up.railway.app/products');
-      let response = await axios.get('http://localhost:5000/products');
+      let response = await axios.get('https://storage-bucket-production.up.railway.app/products');
+     // let response = await axios.get('http://localhost:5000/products');
      
       setUsers(response.data.data)
     }
@@ -49,8 +49,8 @@ function Product() {
 
     axios({
       method: 'post',
-     // url: "https://storage-bucket-production.up.railway.app/product",
-     url: "http://localhost:5000/product",
+     url: "https://storage-bucket-production.up.railway.app/product",
+    // url: "http://localhost:5000/product",
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
       // withCredentials: true
@@ -108,7 +108,8 @@ function Product() {
             <p ><span className='price'>{eachProduct.price}</span><span>pkr</span></p>
              <button onClick={()=>{
               axios({
-                 url : `http://localhost:5000/product/${eachProduct._id}` ,
+                // url : `http://localhost:5000/product/${eachProduct._id}` ,
+                url: `https://storage-bucket-production.up.railway.app/product/${eachProduct._id}`,
                  method : "delete",
 
               })
