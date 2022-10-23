@@ -162,6 +162,21 @@ app.post('/product', upload.any(), async(req, res) => {
         )
     })
 
+    app.delete('/product/:id' , async (req,res)=>{
+      try{
+        let deleted = await productModel.deleteOne({_id :req.params.id}).exec()
+      res.send({
+        message : "product deleted",
+        data : deleted
+      })
+    }
+    catch{
+       res.send({
+        message : 'error in deleting product'
+       })
+    }
+    })
+
 
     const userSchema = new mongoose.Schema({
     
@@ -311,12 +326,31 @@ app.post('/product', upload.any(), async(req, res) => {
             });
         }
     })
+
+
+    app.delete('/user/:id' , async (req,res)=>{
+        try{
+          let deleted = await userModel.deleteOne({_id :req.params.id}).exec()
+        res.send({
+          message : "user deleted",
+          data : deleted
+        })
+      }
+      catch{
+         res.send({
+          message : 'error in deleting user'
+         })
+      }
+      })
     
     
     
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
     })
+
+
+
     
     
     

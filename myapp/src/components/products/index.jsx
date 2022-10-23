@@ -16,8 +16,8 @@ function Product() {
   useEffect(() => {
 
     let getAllUsers = async () => {
-       let response = await axios.get('https://storage-bucket-production.up.railway.app/products');
-     // let response = await axios.get('http://localhost:5000/products');
+     //  let response = await axios.get('https://storage-bucket-production.up.railway.app/products');
+      let response = await axios.get('http://localhost:5000/products');
      
       setUsers(response.data.data)
     }
@@ -49,8 +49,8 @@ function Product() {
 
     axios({
       method: 'post',
-      url: "https://storage-bucket-production.up.railway.app/product",
-     //url: "http://localhost:5000/product",
+     // url: "https://storage-bucket-production.up.railway.app/product",
+     url: "http://localhost:5000/product",
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
       // withCredentials: true
@@ -99,14 +99,32 @@ function Product() {
       <h1>products List: </h1>
 
       <div className='productlist'>
-        {users.map(eachUser => (
-          <div key={eachUser.id}>
+        {users.map(eachProduct => (
+          <div key={eachProduct.id}>
             <div className='product'>
-            <img className="productimg" width="120px" src={eachUser.productimage} alt="" />
-            <h4>{eachUser.name}</h4>
-            <p className='description'>{eachUser.description}</p>
-            <p ><span className='price'>{eachUser.price}</span><span>pkr</span></p>
-         
+            <img className="productimg" width="120px" src={eachProduct.productimage} alt="" />
+            <h4>{eachProduct.name}</h4>
+            <p className='description'>{eachProduct.description}</p>
+            <p ><span className='price'>{eachProduct.price}</span><span>pkr</span></p>
+             <button onClick={()=>{
+              axios({
+                 url : `http://localhost:5000/product/${eachProduct._id}` ,
+                 method : "delete",
+
+              })
+              .then(function(response){
+                  console.log(response.data)
+                  setToggleRefresh(!toggleRefresh)
+              })
+              .catch(function (error){
+                 console.log('error' ,error)
+              })
+              
+              
+              
+             }
+
+             }>delete</button>
             <hr />
             </div>
           </div>
