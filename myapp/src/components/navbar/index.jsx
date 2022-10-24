@@ -21,7 +21,7 @@ const NavBar= () =>{
         
           <li><Link to="/signup">Signup</Link></li>
           <li>
-            <Link to="/products">products</Link>
+            <Link to="/products">Products</Link>
           </li>
         </ul>
       </nav>

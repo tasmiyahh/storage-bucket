@@ -178,6 +178,65 @@ app.post('/product', upload.any(), async(req, res) => {
     })
 
 
+    // app.put('/product/:id', async (req, res) => {
+
+    //     console.log("product to be edit", req.body)
+    //     let update = {}
+    //     if (req.body.name) update.name = req.body.name //agr ye ho tw updte me ye dal do
+    //     if (req.body.description) update.description = req.body.description
+    //     if (req.body.price) update.price = req.body.price
+        
+      
+    //     try {
+    //       let edit = await productModel.findOneAndUpdate({ _id: req.params.id },
+    //         update, { new: true }).exec() //check thhese on mongoose doc eg
+      
+    //       console.log("updated product", edit)
+    //       res.send({
+    //         message: "product updated successfully",
+    //         data: edit
+    //       })
+    //     }
+    //     catch {
+    //       res.send({
+    //         message: "error in updating product"
+    //       })
+    //     }
+      
+      
+      
+      
+    //   })
+
+
+    app.put('/product/:id' , async (req,res) =>{
+       console.log('edit product' , req.body)
+       let update = {}
+        if(req.body.name){
+          update.name = req.body.name
+        }
+        if (req.body.description) update.description = req.body.description
+        if (req.body.price) update.price = req.body.price
+
+        try{
+            let edit = await productModel.findOneAndUpdate({_id : req.params.id} ,
+            update , {new : true}).exec()
+            res.send({
+                message : 'product updated',
+                data : edit
+            })
+        }
+
+        catch{
+            res.send({
+                message : 'failed to edit product'
+            })
+        }
+            
+       
+    })
+
+
     const userSchema = new mongoose.Schema({
     
         name: { type: String },
